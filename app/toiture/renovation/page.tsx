@@ -124,7 +124,7 @@ export default function RenovationPage() {
               <AccordionItem value="item-3">
                 <AccordionTrigger className="text-left font-semibold">Gérez-vous les primes ?</AccordionTrigger>
                 <AccordionContent>
-                  Oui, Lazo Group est agréé par la Région Wallonne. Nous préparons le dossier technique pour vous faciliter l'obtention des primes (Audit non obligatoire pour les travaux < 3000€, mais recommandé pour les gros travaux).
+                  Oui, Lazo Group est agréé par la Région Wallonne. Nous préparons le dossier technique pour vous faciliter l'obtention des primes (Audit non obligatoire pour les travaux inférieurs à 3000€, mais recommandé pour les gros travaux).
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
