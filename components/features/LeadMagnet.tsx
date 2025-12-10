@@ -49,7 +49,7 @@ export function LeadMagnet() {
       return {
         title: "Eligible pour Rénoprêt à 0%",
         description: "L'installation photovoltaïque ne bénéficie plus de primes directes, mais vous pouvez financer 100% des travaux à taux zéro.",
-        amount: "Jusqu'à 60.000€ empruntables",
+        amount: "Montants importants empruntables",
       }
     }
 

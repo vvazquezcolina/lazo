@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 }
 
 const tableData = [
-  { material: "Tuile Céramique", lifespan: "50+ ans", price: "€€ (Moyen)", insulation: "Bonne", isRecommended: true },
-  { material: "Ardoise Naturelle", lifespan: "80+ ans", price: "€€€ (Élevé)", insulation: "Excellente", isRecommended: false },
-  { material: "Tuile Béton", lifespan: "30-40 ans", price: "€ (Économique)", insulation: "Moyenne", isRecommended: false },
-  { material: "EPDM (Plat)", lifespan: "50+ ans", price: "€€ (Moyen)", insulation: "Très Bonne", isRecommended: false },
+  { material: "Tuile Céramique", lifespan: "50+ ans", characteristics: "Résistance au gel/degél, faible entretien, esthétique traditionnelle belge", insulation: "Bonne", isRecommended: true },
+  { material: "Ardoise Naturelle", lifespan: "80+ ans", characteristics: "Très résistante aux intempéries, aspect prestigieux, pose sur liteaux", insulation: "Excellente", isRecommended: false },
+  { material: "Tuile Béton", lifespan: "30-40 ans", characteristics: "Légère (poids réduit), grande variété de teintes, pose rapide", insulation: "Moyenne", isRecommended: false },
+  { material: "EPDM (Plat)", lifespan: "50+ ans", characteristics: "Étanchéité totale, adaptée toits plats/inclinés, résistance UV", insulation: "Très Bonne", isRecommended: false },
 ]
 
 export default function RenovationPage() {
@@ -87,7 +87,7 @@ export default function RenovationPage() {
       <section className="container mx-auto px-4 py-8 -mt-10 relative z-20">
          <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-primary flex flex-col md:flex-row gap-6 items-start">
             <div className="flex-1">
-               <h2 className="text-lg font-bold text-foreground mb-2 uppercase tracking-wide text-xs text-primary">En Bref (Direct Answer)</h2>
+               <h2 className="text-lg font-bold text-foreground mb-2 uppercase tracking-wide text-xs text-primary">En Bref</h2>
                <p className="text-slate-700 leading-relaxed font-medium">
                  La <strong>rénovation de toiture à Herstal</strong> implique généralement le remplacement de la couverture (tuile, ardoise) et, impérativement, l'amélioration de l'isolation thermique pour répondre aux normes PEB 2050. 
                  Si le volume du toit est modifié (ex: isolation par l'extérieur), un permis d'urbanisme simplifié est requis. 
@@ -124,7 +124,7 @@ export default function RenovationPage() {
               <AccordionItem value="item-3">
                 <AccordionTrigger className="text-left font-semibold">Gérez-vous les primes ?</AccordionTrigger>
                 <AccordionContent>
-                  Oui, Lazo Group est agréé par la Région Wallonne. Nous préparons le dossier technique pour vous faciliter l'obtention des primes (Audit non obligatoire pour les travaux inférieurs à 3000€, mais recommandé pour les gros travaux).
+                  Oui, Lazo Group est agréé par la Région Wallonne. Nous préparons le dossier technique pour vous faciliter l'obtention des primes. L'audit énergétique n'est pas toujours obligatoire selon l'ampleur des travaux, mais nous le recommandons pour maximiser vos aides financières.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -144,6 +144,29 @@ export default function RenovationPage() {
                  [Carte Google Maps Intégrée ici]
               </div>
            </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="bg-white py-16 border-y border-slate-200">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">Notre Processus de Rénovation</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { step: "01", title: "Diagnostic Gratuit", desc: "Visite sur site, analyse de la charpente et de l'état de la couverture existante" },
+              { step: "02", title: "Devis Détaillé", desc: "Devis transparent avec calcul des primes et recommandations techniques" },
+              { step: "03", title: "Planification", desc: "Planning adapté à vos contraintes et aux conditions météorologiques" },
+              { step: "04", title: "Réalisation", desc: "Travaux réalisés par nos équipes agréées avec suivi qualité continu" },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-black">
+                  {item.step}
+                </div>
+                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                <p className="text-slate-600 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

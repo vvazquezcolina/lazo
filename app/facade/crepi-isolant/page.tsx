@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 }
 
 const isolationData = [
-  { material: "Crépi Isolant (ITE)", lifespan: "30+ ans", price: "€€ (Moyen)", insulation: "R ≥ 4.0", isRecommended: true },
-  { material: "Bardage Bois", lifespan: "25-30 ans", price: "€€€ (Élevé)", insulation: "R ≥ 4.0", isRecommended: false },
-  { material: "Parement Ardoise", lifespan: "50+ ans", price: "€€€€ (Très élevé)", insulation: "R ≥ 4.0", isRecommended: false },
-  { material: "Isolation Intérieure", lifespan: "30+ ans", price: "€ (Économique)", insulation: "R ≥ 3.5", isRecommended: false },
+  { material: "Crépi Isolant (ITE)", lifespan: "30+ ans", characteristics: "Élimine ponts thermiques, ravalement inclus, performance R ≥ 4.0", insulation: "R ≥ 4.0", isRecommended: true },
+  { material: "Bardage Bois", lifespan: "25-30 ans", characteristics: "Esthétique naturelle, ventilation sous bardage, entretien tous les 5-7 ans", insulation: "R ≥ 4.0", isRecommended: false },
+  { material: "Parement Ardoise", lifespan: "50+ ans", characteristics: "Très durable, aspect prestigieux, pose sur ossature métallique", insulation: "R ≥ 4.0", isRecommended: false },
+  { material: "Isolation Intérieure", lifespan: "30+ ans", characteristics: "Réduction espace habitable, ponts thermiques possibles, moins performant", insulation: "R ≥ 3.5", isRecommended: false },
 ]
 
 export default function FacadePage() {
@@ -124,7 +124,7 @@ export default function FacadePage() {
               <Euro className="w-6 h-6 text-green-600" />
             </div>
             <h3 className="text-xl font-bold mb-2">Économies Énergétiques</h3>
-            <p className="text-slate-600">Réduction de 30-40% sur vos factures de chauffage, soit plusieurs centaines d'euros économisés chaque année.</p>
+            <p className="text-slate-600">Réduction de 30-40% sur vos factures de chauffage, avec un retour sur investissement rapide grâce aux primes disponibles.</p>
           </div>
           <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
             <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
@@ -241,6 +241,29 @@ export default function FacadePage() {
                 </li>
               </ul>
            </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="bg-white py-16 border-y border-slate-200">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">Notre Processus d'Isolation</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { step: "01", title: "Étude & Permis", desc: "Analyse de votre façade, préparation du dossier de permis d'urbanisme" },
+              { step: "02", title: "Devis Personnalisé", desc: "Devis détaillé avec calcul des primes et choix des matériaux isolants" },
+              { step: "03", title: "Installation Échafaudage", desc: "Mise en place sécurisée des échafaudages et protection des abords" },
+              { step: "04", title: "Pose & Finition", desc: "Application de l'isolant, pose du crépi ou bardage, finitions soignées" },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-black">
+                  {item.step}
+                </div>
+                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                <p className="text-slate-600 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

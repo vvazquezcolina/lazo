@@ -193,8 +193,8 @@ export default function PhotovoltaiquePage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">Financement Facilité avec le Rénoprêt à 0%</h2>
             <p className="text-xl text-slate-200 mb-8">
-              Financez jusqu'à 60.000€ de travaux à taux zéro. Aucun intérêt, 
-              remboursement sur 10 ans. Accessible pour tous les projets d'énergie renouvelable.
+              Financez vos travaux d'énergie renouvelable à taux zéro. Aucun intérêt, 
+              remboursement sur 10 ans. Accessible pour tous les projets photovoltaïques.
             </p>
             <Button size="lg" className="bg-secondary text-primary hover:bg-secondary/90 font-bold text-lg px-8">
               Calculer mon Éligibilité

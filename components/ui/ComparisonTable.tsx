@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 export type ComparisonRow = {
   material: string
   lifespan: string
-  price: string
+  characteristics: string
   insulation: string
   isRecommended?: boolean
 }
@@ -29,7 +29,7 @@ export function ComparisonTable({ data, title = "Comparatif des Matériaux" }: C
             <tr>
               <th className="px-6 py-4 font-medium">Matériau</th>
               <th className="px-6 py-4 font-medium">Durée de vie</th>
-              <th className="px-6 py-4 font-medium">Budget Est.</th>
+              <th className="px-6 py-4 font-medium">Caractéristiques</th>
               <th className="px-6 py-4 font-medium">Isolation (R)</th>
               <th className="px-6 py-4 font-medium text-center">Lazo Choice</th>
             </tr>
@@ -48,7 +48,7 @@ export function ComparisonTable({ data, title = "Comparatif des Matériaux" }: C
                   {row.material}
                 </td>
                 <td className="px-6 py-4 text-slate-600">{row.lifespan}</td>
-                <td className="px-6 py-4 text-slate-600">{row.price}</td>
+                <td className="px-6 py-4 text-slate-600">{row.characteristics}</td>
                 <td className="px-6 py-4 text-slate-600">{row.insulation}</td>
                 <td className="px-6 py-4 text-center">
                   {row.isRecommended && (

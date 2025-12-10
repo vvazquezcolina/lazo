@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 }
 
 const batteryData = [
-  { material: "Huawei Luna", lifespan: "15 ans garantie", price: "€€ (Moyen)", insulation: "10 kWh", isRecommended: true },
-  { material: "SMA Sunny Boy", lifespan: "20 ans garantie", price: "€€€ (Élevé)", insulation: "8-15 kWh", isRecommended: false },
-  { material: "LG Chem RESU", lifespan: "10 ans garantie", price: "€€€ (Élevé)", insulation: "6-16 kWh", isRecommended: false },
-  { material: "Tesla Powerwall", lifespan: "10 ans garantie", price: "€€€€ (Très élevé)", insulation: "13.5 kWh", isRecommended: false },
+  { material: "Huawei Luna", lifespan: "15 ans garantie", characteristics: "Rapport qualité-prix optimal, app mobile intuitive, gestion intelligente", insulation: "10 kWh", isRecommended: true },
+  { material: "SMA Sunny Boy", lifespan: "20 ans garantie", characteristics: "Robustesse industrielle, garantie longue durée, réputation établie", insulation: "8-15 kWh", isRecommended: false },
+  { material: "LG Chem RESU", lifespan: "10 ans garantie", characteristics: "Compacte, grande capacité disponible (6-16 kWh), installation flexible", insulation: "6-16 kWh", isRecommended: false },
+  { material: "Tesla Powerwall", lifespan: "10 ans garantie", characteristics: "Technologie avancée, intégration écosystème Tesla, design premium", insulation: "13.5 kWh", isRecommended: false },
 ]
 
 export default function SolarPage() {
@@ -46,7 +46,7 @@ export default function SolarPage() {
             "name": "Peut-on encore obtenir des primes pour les panneaux solaires en 2025 ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Les primes directes pour l'installation photovoltaïque ont été supprimées. Cependant, vous pouvez bénéficier du Rénoprêt à taux zéro pour financer jusqu'à 60.000€ de travaux. De plus, l'auto-consommation et la vente de surplus restent rentables."
+              "text": "Les primes directes pour l'installation photovoltaïque ont été supprimées. Cependant, vous pouvez bénéficier du Rénoprêt à taux zéro pour financer des montants importants de travaux. De plus, l'auto-consommation et la vente de surplus restent rentables."
             }
           },
           {
@@ -54,7 +54,7 @@ export default function SolarPage() {
             "name": "Quelle est la différence entre Huawei Luna et SMA Sunny Boy ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Huawei Luna offre un excellent rapport qualité-prix avec une garantie de 15 ans et des fonctionnalités avancées. SMA Sunny Boy est plus cher mais offre une garantie plus longue (20 ans) et une réputation de robustesse industrielle. Le choix dépend de votre budget et de vos besoins."
+              "text": "Huawei Luna offre un excellent rapport qualité-prix avec une garantie de 15 ans et des fonctionnalités avancées. SMA Sunny Boy offre une garantie plus longue (20 ans) et une réputation de robustesse industrielle. Le choix dépend de vos besoins spécifiques et de vos priorités."
             }
           }
         ]
@@ -99,7 +99,7 @@ export default function SolarPage() {
                <h2 className="text-lg font-bold text-foreground mb-2 uppercase tracking-wide text-xs text-secondary">En Bref</h2>
                <p className="text-slate-700 leading-relaxed font-medium">
                  L'<strong>installation photovoltaïque à Herstal et Liège</strong> permet de produire votre propre électricité et de la stocker via une batterie domestique. 
-                 Bien que les primes directes aient été supprimées, le <strong>Rénoprêt à 0%</strong> permet de financer jusqu'à 60.000€. 
+                 Bien que les primes directes aient été supprimées, le <strong>Rénoprêt à 0%</strong> permet de financer des montants importants de travaux sans intérêts. 
                  Avec l'autoconsommation, vous pouvez réduire vos factures énergétiques de 60-70%. 
                  <Link href="/contact" className="text-primary hover:underline mx-1">Contactez-nous</Link> pour une étude personnalisée.
                </p>
@@ -176,7 +176,7 @@ export default function SolarPage() {
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-left font-semibold">Peut-on encore obtenir des primes en 2025 ?</AccordionTrigger>
                 <AccordionContent>
-                  Les primes directes ont été supprimées, mais le Rénoprêt à 0% permet de financer jusqu'à 60.000€ de travaux sans intérêts. L'autoconsommation et la vente de surplus restent très rentables.
+                  Les primes directes ont été supprimées, mais le Rénoprêt à 0% permet de financer des montants importants de travaux sans intérêts. L'autoconsommation et la vente de surplus restent très rentables.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
@@ -228,6 +228,29 @@ export default function SolarPage() {
                 </li>
               </ul>
            </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="bg-white py-16 border-y border-slate-200">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">Notre Processus d'Installation</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { step: "01", title: "Étude Personnalisée", desc: "Analyse de votre consommation, orientation toiture, dimensionnement optimal" },
+              { step: "02", title: "Devis & Financement", desc: "Devis détaillé avec options de financement Rénoprêt à 0% et garanties" },
+              { step: "03", title: "Installation", desc: "Pose des panneaux et batteries par équipes certifiées, raccordement au réseau" },
+              { step: "04", title: "Mise en Service", desc: "Mise en service, formation à l'utilisation, suivi post-installation" },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-black">
+                  {item.step}
+                </div>
+                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                <p className="text-slate-600 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
