@@ -91,7 +91,7 @@ export default function PhotovoltaiquePage() {
               <Button size="lg" className="bg-secondary text-primary hover:bg-secondary/90 font-bold text-lg px-8">
                 Demander un Devis Gratuit
               </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 hover:text-white">
                 Simuler mes économies
               </Button>
             </div>

@@ -52,17 +52,17 @@ export default function Home() {
       
       <Hero />
       
-      {/* Lead Magnet Section - The "Star Component" */}
-      <section className="py-16 bg-slate-50 border-y border-slate-200" id="simulateur">
+      {/* Lead Magnet Section */}
+      <section className="py-16 bg-slate-50 border-y border-slate-200" id="devis">
         <div className="container mx-auto px-4">
            <div className="text-center max-w-3xl mx-auto mb-10">
-              <Badge className="mb-4 bg-green-600 hover:bg-green-700 text-base px-4 py-1">Nouveauté 2025</Badge>
+              <Badge className="mb-4 bg-green-600 hover:bg-green-700 text-base px-4 py-1">Gratuit & Sans Engagement</Badge>
               <h2 className="text-3xl md:text-5xl font-black text-foreground mb-6">
-                 Calculez vos Primes & Économies
+                 Demandez votre Devis Gratuit
               </h2>
               <p className="text-xl text-slate-600">
-                La Région Wallonne a mis à jour les primes toiture et isolation. 
-                Utilisez notre assistant intelligent pour découvrir le montant auquel vous avez droit en 3 clics.
+                Recevez un devis personnalisé et une consultation gratuite pour votre projet de rénovation énergétique. 
+                Nos experts vous accompagnent de A à Z.
               </p>
            </div>
            
@@ -84,10 +84,10 @@ export default function Home() {
       </section>
       
       {/* Trust Section */}
-      <section className="bg-primary py-12 text-slate-400 border-t border-slate-800">
+      <section className="bg-primary py-12 text-white border-t border-primary/20">
         <div className="container text-center">
-           <h3 className="text-sm font-bold uppercase tracking-widest mb-8 opacity-50">Certifications & Partenaires</h3>
-           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+           <h3 className="text-sm font-bold uppercase tracking-widest mb-8 text-white/80">Certifications & Partenaires</h3>
+           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 text-white/90 grayscale hover:grayscale-0 transition-all duration-500">
              {/* Mock Logos - Replace with real Images in production */}
              <span className="text-2xl font-bold text-white">RESCERT</span>
              <span className="text-2xl font-bold text-white">CSTC</span>

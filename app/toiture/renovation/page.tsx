@@ -79,7 +79,7 @@ export default function RenovationPage() {
           </p>
           <div className="flex gap-4">
             <Button size="lg" className="bg-primary hover:bg-blue-700 font-bold text-lg px-8">Demander un Devis</Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">Voir nos réalisations</Button>
+            <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 hover:text-white">Voir nos réalisations</Button>
           </div>
         </div>
       </section>
