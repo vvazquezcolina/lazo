@@ -1,0 +1,67 @@
+# Robots.txt for Lazo Group - GEO optimization for AI crawlers
+
+# Google bot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /
+
+# Google-Extended (Gemini, SGE)
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 1
+
+# GPTBot (ChatGPT)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+# Claude bot
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 1
+
+# Anthropic AI
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 1
+
+# Perplexity bot
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+# CCBot (Common Crawl - used by many LLMs)
+User-agent: CCBot
+Allow: /
+Crawl-delay: 2
+
+# Bing bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Applebot (Siri)
+User-agent: Applebot
+Allow: /
+Crawl-delay: 1
+
+# Default rule
+User-agent: *
+Allow: /
+Crawl-delay: 2
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.lazotoiture.be/sitemap.xml
+
+# Host
+Host: https://www.lazotoiture.be
