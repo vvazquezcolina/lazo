@@ -1,36 +1,65 @@
-# Lazo Group Web Platform
+# Lazo Group — Corporate Website
 
-This is a Next.js project created with v0.
+> Corporate site for Lazo Group, a Belgium-based holding. Next.js + shadcn/ui + Tailwind, deployed to Vercel.
 
-## Getting Started
+**Live:** [lazo-gules.vercel.app](https://lazo-gules.vercel.app)
 
-First, install the dependencies:
+![Next.js](https://img.shields.io/badge/Next.js-000)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-Radix-000)
+![Tailwind](https://img.shields.io/badge/Tailwind-38bdf8)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178c6)
+
+---
+
+## About
+
+Lazo Group is a corporate holding based in Liège, Belgium. This site presents the group's activities, subsidiaries and contact channels.
+
+Built as a freelance engagement from Cancún to Belgium — remote delivery, async collaboration, handoff-friendly codebase.
+
+## Features
+
+- **Fully responsive** Next.js App Router site
+- **Accessible UI** built on Radix primitives via shadcn/ui (~25 components in use)
+- **Typed forms** with `react-hook-form` + `zod` resolvers
+- **Iconography** via `lucide-react`
+- **Animation** via `framer-motion`
+- **Theme-ready** with `next-themes` (light / dark)
+- **Deployed to Vercel** with automatic previews per PR
+
+## Tech stack
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js (App Router) + TypeScript |
+| UI | Tailwind CSS + shadcn/ui (Radix) |
+| Forms | react-hook-form + zod |
+| Animation | framer-motion |
+| Icons | lucide-react |
+| Hosting | Vercel |
+
+## Running locally
 
 ```bash
+git clone https://github.com/vvazquezcolina/lazo.git
+cd lazo
 npm install
-# or
-pnpm install
+npm run dev   # http://localhost:3000
 ```
 
-Then, run the development server:
+### Scripts
 
-```bash
-npm run dev
-# or
-pnpm dev
-```
+| Command | Description |
+|---|---|
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint |
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Client work
 
-## Project Structure
+This repo is public as a portfolio sample. Content, branding and copy belong to Lazo Group.
 
-- `app/`: Contains the main application code (pages, layouts, styles).
-- `components/`: Contains reusable React components.
-- `public/`: Static assets like images.
+---
 
-## Technologies Used
-
-- Next.js
-- Tailwind CSS
-- Lucide React (Icons)
-- Radix UI (via shadcn/ui patterns)
+**Author:** [Victor Vazquez](https://github.com/vvazquezcolina) — freelance via [ACID MKT](https://acidmkt.com), Cancún MX.
