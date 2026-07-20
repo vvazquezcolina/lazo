@@ -1,0 +1,347 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   Lazo Toiture & Photovoltaïque — identité de marque
+   Navy   #09093d  (logo, texte, surfaces profondes)
+   Jaune  #ffc71a  (accent, CTA, signaux d'urgence)
+   ============================================================ */
+
+:root {
+  /* Échelle navy dérivée du logo */
+  --navy-950: #05051f;
+  --navy-900: #09093d;
+  --navy-800: #14144f;
+  --navy-700: #1f1f66;
+  --navy-600: #2e2e85;
+  --navy-500: #4a4a9e;
+  --navy-300: #9a9ac4;
+  --navy-100: #e4e4f0;
+  --navy-50: #f4f4f9;
+
+  /* Échelle jaune dérivée du logo */
+  --gold-600: #c99a00;
+  /* Doré assombri pour le texte sur fond clair : #c99a00 ne donne que 2,6:1
+     sur blanc, sous le seuil AA de 4,5:1. Réservé au texte, pas aux aplats. */
+  --gold-700: #7a5d00;
+  --gold-500: #e5ae06;
+  --gold-400: #ffc71a;
+  --gold-300: #ffd757;
+  --gold-100: #fff2cc;
+  --gold-50: #fffaeb;
+
+  --background: #ffffff;
+  --foreground: var(--navy-900);
+  --card: #ffffff;
+  --card-foreground: var(--navy-900);
+  --popover: #ffffff;
+  --popover-foreground: var(--navy-900);
+
+  --primary: var(--navy-900);
+  --primary-foreground: #ffffff;
+  --secondary: var(--navy-50);
+  --secondary-foreground: var(--navy-900);
+  --accent: var(--gold-400);
+  --accent-foreground: var(--navy-900);
+
+  --muted: var(--navy-50);
+  --muted-foreground: #5a5a72;
+  --destructive: #d92d20;
+  --destructive-foreground: #ffffff;
+  --success: #067647;
+
+  --border: #e3e3ee;
+  --input: #e3e3ee;
+  --ring: var(--gold-400);
+
+  --chart-1: var(--gold-400);
+  --chart-2: var(--navy-900);
+  --chart-3: var(--navy-500);
+  --chart-4: var(--gold-600);
+  --chart-5: var(--navy-300);
+
+  --radius: 0.625rem;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: var(--navy-900);
+  --sidebar-primary: var(--navy-900);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--gold-400);
+  --sidebar-accent-foreground: var(--navy-900);
+  --sidebar-border: #e3e3ee;
+  --sidebar-ring: var(--gold-400);
+}
+
+.dark {
+  --background: var(--navy-950);
+  --foreground: #f4f4f9;
+  --card: #0d0d2e;
+  --card-foreground: #f4f4f9;
+  --popover: #0d0d2e;
+  --popover-foreground: #f4f4f9;
+
+  --primary: #ffffff;
+  --primary-foreground: var(--navy-900);
+  --secondary: #14144f;
+  --secondary-foreground: #f4f4f9;
+  --accent: var(--gold-400);
+  --accent-foreground: var(--navy-900);
+
+  --muted: #14144f;
+  --muted-foreground: #a6a6c4;
+  --destructive: #f97066;
+  --destructive-foreground: var(--navy-950);
+  --success: #47cd89;
+
+  --border: #23235e;
+  --input: #23235e;
+  --ring: var(--gold-400);
+
+  --sidebar: #0d0d2e;
+  --sidebar-foreground: #f4f4f9;
+  --sidebar-primary: var(--gold-400);
+  --sidebar-primary-foreground: var(--navy-900);
+  --sidebar-accent: #14144f;
+  --sidebar-accent-foreground: #f4f4f9;
+  --sidebar-border: #23235e;
+  --sidebar-ring: var(--gold-400);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-navy-600: var(--navy-600);
+  --color-navy-500: var(--navy-500);
+  --color-navy-300: var(--navy-300);
+  --color-navy-100: var(--navy-100);
+  --color-navy-50: var(--navy-50);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+  --color-gold-500: var(--gold-500);
+  --color-gold-400: var(--gold-400);
+  --color-gold-300: var(--gold-300);
+  --color-gold-100: var(--gold-100);
+  --color-gold-50: var(--gold-50);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 10px);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-synthesis-weight: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-extrabold tracking-tight text-balance;
+    /* Les titres ne se justifient jamais. */
+    text-align: start;
+  }
+
+  h1 { @apply text-4xl leading-[1.08] sm:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl leading-[1.12] sm:text-4xl lg:text-[2.75rem]; }
+  h3 { @apply text-xl leading-snug sm:text-2xl; }
+  h4 { @apply text-lg leading-snug font-bold sm:text-xl; }
+
+  p { @apply leading-relaxed; }
+
+  a, button { text-underline-offset: 3px; }
+
+  /* L'anneau doré seul est invisible sur fond clair (1,6:1, il en faut 3).
+     Contour navy + halo doré : lisible sur clair comme sur foncé. */
+  :focus-visible {
+    outline: 2px solid var(--navy-900);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--gold-300);
+    border-radius: 2px;
+  }
+
+  .dark :focus-visible,
+  [class*="bg-navy-9"] :focus-visible,
+  [class*="bg-navy-95"] :focus-visible {
+    outline-color: var(--gold-400);
+    box-shadow: 0 0 0 4px rgb(255 255 255 / 0.25);
+  }
+
+  ::selection {
+    background: var(--gold-400);
+    color: var(--navy-900);
+  }
+}
+
+/* ============================================================
+   Justification des textes longs.
+   Voir la règle: hyphens: manual — jamais auto.
+   Le césureur natif casse les digrammes français/wallons
+   (ll, rr, cc) et produit des coupures fautives.
+   Pour un mot qui laisse un trou, insérer &shy; à la main.
+   ============================================================ */
+@layer components {
+  .prose-lazo p,
+  .prose-lazo li {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: manual;
+    -webkit-hyphens: manual;
+  }
+
+  /* Le micro-copy d'interface reste en drapeau, même dans .prose-lazo */
+  .prose-lazo .no-justify,
+  .prose-lazo figcaption,
+  .prose-lazo th,
+  .prose-lazo td {
+    text-align: start;
+    hyphens: manual;
+  }
+}
+
+@layer utilities {
+  /* Filet doré sous les titres de section */
+  .rule-gold::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 4px;
+    margin-top: 1rem;
+    border-radius: 9999px;
+    background: var(--gold-400);
+  }
+
+  .bg-grid-navy {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ============================================================
+   Bandeau de consentement (vanilla-cookieconsent)
+   Aligné sur l'identité : navy + jaune, mêmes rayons que le site.
+   Le bouton « Refuser » conserve le même poids visuel que
+   « Accepter » — un refus rendu plus difficile invalide le
+   consentement au sens du RGPD.
+   ============================================================ */
+#cc-main {
+  --cc-font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --cc-bg: #ffffff;
+  --cc-primary-color: var(--navy-900);
+  --cc-secondary-color: #5a5a72;
+
+  --cc-btn-primary-bg: var(--gold-400);
+  --cc-btn-primary-color: var(--navy-900);
+  --cc-btn-primary-border-color: var(--gold-400);
+  --cc-btn-primary-hover-bg: var(--gold-300);
+  --cc-btn-primary-hover-color: var(--navy-900);
+  --cc-btn-primary-hover-border-color: var(--gold-300);
+
+  --cc-btn-secondary-bg: var(--navy-50);
+  --cc-btn-secondary-color: var(--navy-900);
+  --cc-btn-secondary-border-color: #e3e3ee;
+  --cc-btn-secondary-hover-bg: var(--navy-100);
+  --cc-btn-secondary-hover-color: var(--navy-900);
+
+  --cc-separator-border-color: #e3e3ee;
+  --cc-toggle-on-bg: var(--gold-500);
+  --cc-toggle-off-bg: #b8b8c8;
+  --cc-toggle-readonly-bg: #e3e3ee;
+  --cc-link-color: var(--navy-900);
+  --cc-btn-border-radius: 0.5rem;
+  --cc-modal-border-radius: 0.875rem;
+}
+
+#cc-main .cm__title,
+#cc-main .pm__title {
+  font-family: var(--font-manrope), var(--font-inter), sans-serif;
+  font-weight: 800;
+}
+
+.dark #cc-main {
+  --cc-bg: #0d0d2e;
+  --cc-primary-color: #f4f4f9;
+  --cc-secondary-color: #a6a6c4;
+  --cc-btn-secondary-bg: #14144f;
+  --cc-btn-secondary-color: #f4f4f9;
+  --cc-btn-secondary-border-color: #23235e;
+  --cc-separator-border-color: #23235e;
+}
+
+/* Le bouton « Refuser » doit rester aussi accessible que « Tout accepter » :
+   même taille, même emplacement, même nombre de clics. Il prend en revanche
+   le style secondaire pour éviter deux boutons pleins identiques. */
+#cc-main .cm__btn[data-role="necessary"],
+#cc-main .pm__btn[data-role="necessary"] {
+  background: var(--cc-btn-secondary-bg);
+  color: var(--cc-btn-secondary-color);
+  border-color: var(--cc-btn-secondary-border-color);
+}
+#cc-main .cm__btn[data-role="necessary"]:hover,
+#cc-main .pm__btn[data-role="necessary"]:hover {
+  background: var(--cc-btn-secondary-hover-bg);
+}

@@ -1,0 +1,12 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lazo">
+  <!--
+    Favicon Lazo. Reprend le motif du logo : le triangle qui traverse le
+    « A » du mot-symbole et qui se lit comme un versant de toiture.
+    Formes volumineuses et contraste fort pour rester lisible à 16 px.
+  -->
+  <rect width="64" height="64" rx="14" fill="#09093d"/>
+  <!-- Versant de toiture -->
+  <path d="M32 14 L52 40 H41.5 L32 27 L22.5 40 H12 Z" fill="#ffc71a"/>
+  <!-- Ligne de base, rappel du soulignement doré du logo -->
+  <rect x="12" y="45" width="40" height="5" rx="2.5" fill="#ffc71a"/>
+</svg>
