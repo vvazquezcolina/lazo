@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { z } from "zod"
 import { site } from "@/lib/site"
+import { isEmailConfigured, sendEmail } from "@/lib/email"
 
 /**
  * Réception des demandes de devis.
@@ -10,11 +11,20 @@ import { site } from "@/lib/site"
  * visiteur recevait une confirmation. Cette version échoue explicitement si
  * l'envoi n'est pas configuré.
  *
+ * Le transport vit dans lib/email.ts — SMTP prioritaire (les identifiants
+ * Mandala Group), repli sur Resend. Le message part vers CONTACT_TO
+ * (info@lazotoiture.be) et son Reply-To porte l'adresse saisie par le
+ * visiteur : répondre depuis la boîte de Lazo écrit donc au client, jamais
+ * au serveur d'envoi.
+ *
  * Configuration (variables d'environnement) :
- *   RESEND_API_KEY   clé API Resend — https://resend.com
- *   CONTACT_FROM     expéditeur sur un domaine vérifié (ex. devis@lazotoiture.be)
- *   CONTACT_TO       destinataire — par défaut l'adresse de lib/site.ts
+ *   SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS / SMTP_FROM
+ *   RESEND_API_KEY + CONTACT_FROM   (repli)
+ *   CONTACT_TO                      destinataire — défaut : lib/site.ts
  */
+
+// nodemailer exige le runtime Node : l'edge runtime n'a pas de sockets TCP.
+export const runtime = "nodejs"
 
 const schema = z.object({
   name: z.string().trim().min(2, "Merci d'indiquer votre nom.").max(120),
@@ -59,13 +69,11 @@ export async function POST(request: NextRequest) {
 
   const d = parsed.data
 
-  const apiKey = process.env.RESEND_API_KEY
   const to = process.env.CONTACT_TO || site.email
-  const from = process.env.CONTACT_FROM
 
-  if (!apiKey || !from) {
+  if (!isEmailConfigured()) {
     console.error(
-      "[contact] Envoi non configuré (RESEND_API_KEY et/ou CONTACT_FROM manquants). " +
+      "[contact] Envoi non configuré (ni SMTP_* ni RESEND_API_KEY + CONTACT_FROM). " +
         "Demande NON transmise :",
       { name: d.name, email: d.email, phone: d.phone, commune: d.commune, service: d.service },
     )
@@ -115,38 +123,31 @@ export async function POST(request: NextRequest) {
     d.message ? `\nDescription :\n${d.message}` : "",
   ].join("\n")
 
-  try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from,
-        to: [to],
-        reply_to: d.email,
-        subject: `Devis ${d.service || "toiture"} — ${d.name}${d.commune ? ` (${d.commune})` : ""}`,
-        html,
-        text,
-      }),
+  const result = await sendEmail({
+    to,
+    // Reply-To = l'adresse du visiteur. C'est tout l'intérêt : Lazo répond
+    // depuis info@lazotoiture.be et la réponse arrive au client.
+    replyTo: d.email,
+    subject: `Devis ${d.service || "toiture"} — ${d.name}${d.commune ? ` (${d.commune})` : ""}`,
+    html,
+    text,
+  })
+
+  if (!result.ok) {
+    // On loggue la demande complète : si le transport tombe, le lead reste
+    // récupérable dans les logs Vercel plutôt que perdu.
+    console.error("[contact] Échec d'envoi", result.via ?? "?", "—", result.error, {
+      name: d.name,
+      email: d.email,
+      phone: d.phone,
+      commune: d.commune,
+      service: d.service,
     })
-
-    if (!res.ok) {
-      const detail = await res.text()
-      console.error("[contact] Échec Resend:", res.status, detail.slice(0, 500))
-      return NextResponse.json(
-        { error: "L'envoi a échoué. Merci de nous appeler directement :" },
-        { status: 502 },
-      )
-    }
-
-    return NextResponse.json({ success: true })
-  } catch (err) {
-    console.error("[contact] Erreur réseau:", err)
     return NextResponse.json(
       { error: "L'envoi a échoué. Merci de nous appeler directement :" },
       { status: 502 },
     )
   }
+
+  return NextResponse.json({ success: true })
 }
