@@ -83,7 +83,11 @@ async function sendViaSmtp(opts: MailOpts): Promise<SendResult> {
     const info = await transporter.sendMail({
       from,
       to: opts.to,
-      bcc: bcc(),
+      // Pas de champ `bcc` : nodemailer en ferait un en-tête « Bcc: » écrit
+      // DANS le message, que le destinataire principal verrait — une copie
+      // cachée qui ne cache rien. On force donc l'enveloppe SMTP à la main :
+      // l'adresse en copie n'existe que dans le RCPT TO, jamais dans le corps.
+      envelope: { from: user, to: [opts.to, ...(bcc() ? [bcc() as string] : [])] },
       replyTo: opts.replyTo,
       subject: opts.subject,
       html: opts.html,
