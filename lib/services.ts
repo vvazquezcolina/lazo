@@ -193,8 +193,8 @@ export const SERVICES: Service[] = [
     metaTitle: "Toiture Plate & Étanchéité EPDM à Liège",
     metaDescription:
       "Pose et rénovation de toiture plate à Liège : membrane EPDM, roofing bitumineux, isolation et évacuation des eaux. Garantie décennale.",
-    image: "/img/toiture-plate-epdm.jpg",
-    imageAlt: "Chantier Lazo : écran sous-toiture et liteaunage neufs, toiture plate en EPDM et souche en ardoises, au-dessus de la vallée liégeoise",
+    image: "/img/toiture-plate-roofing.jpg",
+    imageAlt: "Toiture plate étanchée en roofing bitumineux, avec relevés en périphérie et souche de cheminée traitée",
     primaryKeyword: "toiture plate",
     shortDescription: "Étanchéité de toiture plate en membrane EPDM ou roofing bitumineux, isolation comprise",
     highlights: [
@@ -254,7 +254,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       "Panneaux photovoltaïques à Liège et Herstal, posés par des couvreurs. Étanchéité maîtrisée, dispense de permis d'urbanisme.",
     image: "/img/photovoltaique-toiture.jpg",
-    imageAlt: "Deux couvreurs Lazo posant des panneaux photovoltaïques sur une toiture en tuiles",
+    imageAlt: "Installation photovoltaïque Lazo achevée sur une toiture en tuiles, camionnette de l'entreprise devant la maison",
     primaryKeyword: "panneaux photovoltaïques",
     shortDescription: "Étude, pose et raccordement de panneaux photovoltaïques, avec étanchéité garantie",
     highlights: [
@@ -314,13 +314,13 @@ export const SERVICES: Service[] = [
     slug: "bardage",
     navLabel: "Bardage",
     title: "Bardage",
-    tagline: "Bois, composite, fibre-ciment, zinc",
+    tagline: "Bois, composite, fibre-ciment, ardoise, zinc",
     h1: "Bardage de façade en province de Liège",
     metaTitle: "Bardage de Façade à Liège | Bois, Composite, Zinc",
     metaDescription:
       "Bardage à Liège et Herstal : bois, composite, fibre-ciment ou zinc sur ossature ventilée. Combinable avec l'isolation par l'extérieur.",
     image: "/img/bardage-facade.jpg",
-    imageAlt: "Bardage en lames verticales posé sur la façade d'une maison",
+    imageAlt: "Pignon de maison entièrement habillé d'un bardage en ardoises posé par Lazo, en province de Liège",
     primaryKeyword: "bardage",
     shortDescription:
       "Pose de bardage bois, composite, fibre-ciment ou zinc sur ossature ventilée, avec ou sans isolation",
