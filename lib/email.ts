@@ -25,6 +25,20 @@ interface MailOpts {
   replyTo?: string
 }
 
+/**
+ * Copie cachée facultative (CONTACT_BCC), pensée pour la phase de recette :
+ * elle permet de vérifier ce qui part réellement sans encombrer la boîte de
+ * Lazo d'un second destinataire visible. La retirer = supprimer la variable
+ * d'environnement, aucun changement de code.
+ *
+ * En copie CACHÉE et non en copie simple : le destinataire principal ne doit
+ * pas voir une adresse tierce sur ses demandes de devis.
+ */
+function bcc(): string | undefined {
+  const v = process.env.CONTACT_BCC?.trim()
+  return v || undefined
+}
+
 /** Un transport est-il configuré ? Sert à répondre 503 sans tenter d'envoi. */
 export function isEmailConfigured(): boolean {
   const smtp = Boolean(
@@ -69,6 +83,7 @@ async function sendViaSmtp(opts: MailOpts): Promise<SendResult> {
     const info = await transporter.sendMail({
       from,
       to: opts.to,
+      bcc: bcc(),
       replyTo: opts.replyTo,
       subject: opts.subject,
       html: opts.html,
@@ -100,6 +115,7 @@ async function sendViaResend(opts: MailOpts): Promise<SendResult> {
       body: JSON.stringify({
         from,
         to: [opts.to],
+        ...(bcc() ? { bcc: [bcc()] } : {}),
         reply_to: opts.replyTo,
         subject: opts.subject,
         html: opts.html,
