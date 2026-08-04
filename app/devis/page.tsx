@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 const PROMISES = [
-  { icon: Eye, label: "Visite et diagnostic sur place" },
+  { icon: Eye, label: "Visite sur place" },
   { icon: ShieldCheck, label: "Devis détaillé poste par poste" },
   { icon: Clock, label: "Réponse sous 24 h" },
 ]
@@ -24,7 +24,7 @@ export default function DevisPage() {
       <div className="mb-8 text-center">
         <h1 className="text-3xl text-navy-900 sm:text-4xl">Demander un devis gratuit</h1>
         <p className="prose-lazo mx-auto mt-3 max-w-lg text-muted-foreground">
-          Quelques questions, environ deux minutes. Le déplacement, le diagnostic et le devis
+          Quelques questions, environ deux minutes. Le déplacement et le devis
           écrit sont gratuits et sans engagement.
         </p>
       </div>

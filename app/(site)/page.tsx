@@ -12,7 +12,7 @@ import { JsonLd, faqSchema } from "@/lib/schema"
 export const metadata: Metadata = {
   title: { absolute: "Couvreur à Liège & Herstal | Rénovation de Toiture" },
   description:
-    "Couvreur agréé en province de Liège. Rénovation de toiture, isolation, toiture plate, photovoltaïque et bardage. Diagnostic gratuit sous 24 h.",
+    "Couvreur agréé en province de Liège. Rénovation de toiture, isolation, toiture plate, photovoltaïque et bardage. Devis gratuit sous 24 h.",
   alternates: { canonical: "/" },
 }
 
@@ -23,7 +23,7 @@ const HOME_FAQ = [
   },
   {
     q: "Le devis est-il vraiment gratuit ?",
-    a: "Oui, le déplacement, le diagnostic et le devis écrit sont gratuits et sans engagement. Vous recevez un document détaillé poste par poste, avec les matériaux et les quantités, pas un prix global sans explication.",
+    a: "Oui, le déplacement et le devis écrit sont gratuits et sans engagement. Vous recevez un document détaillé poste par poste, avec les matériaux et les quantités, pas un prix global sans explication.",
   },
   {
     q: "Combien de temps pour recevoir un devis ?",
@@ -42,7 +42,7 @@ const HOME_FAQ = [
 const REASONS = [
   {
     icon: Eye,
-    title: "Un diagnostic qu'on vous montre",
+    title: "Ce qu'on voit, on vous le montre",
     body: "Nous photographions ce que nous constatons sur le toit et nous vous l'expliquons, y compris les parties invisibles depuis le sol. Vous décidez sur des images, pas sur parole.",
   },
   {
@@ -71,7 +71,7 @@ const STEPS = [
   {
     n: "02",
     title: "Nous montons regarder",
-    body: "Diagnostic sur place, avec accès réel à la toiture quand c'est nécessaire. Nous photographions les désordres, y compris ce que vous ne pouvez pas voir depuis le sol.",
+    body: "Visite sur place, avec accès réel à la toiture quand c'est nécessaire. Nous photographions les désordres, y compris ce que vous ne pouvez pas voir depuis le sol.",
   },
   {
     n: "03",
@@ -135,7 +135,7 @@ export default function HomePage() {
                 href="/devis"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold-400 px-7 py-4 font-bold text-navy-900 shadow-lg transition hover:bg-gold-300"
               >
-                Diagnostic gratuit
+                Devis gratuit
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
               <a
@@ -149,9 +149,9 @@ export default function HomePage() {
 
             <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-white/70">
               {[
-                "Devis gratuit sous 24 h",
+                "Réponse sous 24 h",
                 "Garantie décennale",
-                "Diagnostic photo détaillé",
+                "Relevé photo détaillé",
                 "14 communes desservies",
               ].map((t) => (
                 <li key={t} className="flex items-center gap-2">

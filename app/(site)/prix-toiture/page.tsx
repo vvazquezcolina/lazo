@@ -60,7 +60,7 @@ const FAQ = [
   },
   {
     q: "Le devis est-il vraiment gratuit et sans engagement ?",
-    a: "Oui. Le déplacement, le diagnostic et le devis écrit ne vous coûtent rien et ne vous engagent à rien. Vous restez libre de consulter d'autres entreprises — et nous vous encourageons à le faire.",
+    a: "Oui. Le déplacement et le devis écrit ne vous coûtent rien et ne vous engagent à rien. Vous restez libre de consulter d'autres entreprises — et nous vous encourageons à le faire.",
   },
 ]
 
@@ -152,7 +152,7 @@ export default function PrixPage() {
             <p>
               L&apos;arbitrage est moins évident qu&apos;il n&apos;y paraît. Une réparation ciblée
               sur une couverture globalement saine est parfois la bonne décision — nous vous le
-              dirons lors du diagnostic, même si ce type d&apos;intervention ponctuelle ne fait pas
+              dirons lors de la visite, même si ce type d&apos;intervention ponctuelle ne fait pas
               partie de nos prestations.
               Mais quand chaque intervention est suivie d&apos;une nouvelle fuite ailleurs quelques
               mois plus tard, l&apos;addition des dépannages, du déplacement et de l&apos;accès

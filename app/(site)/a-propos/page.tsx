@@ -15,7 +15,7 @@ import { JsonLd, breadcrumbSchema } from "@/lib/schema"
 export const metadata: Metadata = {
   title: "À propos — notre façon de travailler",
   description:
-    "Comment nous abordons un chantier de toiture en province de Liège : diagnostic documenté, devis détaillé poste par poste, garantie décennale.",
+    "Comment nous abordons un chantier de toiture en province de Liège : visite documentée, devis détaillé poste par poste, garantie décennale.",
   alternates: { canonical: "/a-propos" },
 }
 
@@ -62,7 +62,7 @@ export default function AProposPage() {
             <div className="mt-6 space-y-5 text-muted-foreground">
               <p>
                 <strong className="text-navy-900">Nous montrons ce que nous constatons.</strong>{" "}
-                Chaque diagnostic est documenté par des photos des zones que vous ne pouvez pas
+                Chaque visite est documentée par des photos des zones que vous ne pouvez pas
                 voir depuis le sol. Vous décidez sur des images, pas sur une parole d&apos;expert.
                 Cela vous permet aussi de comparer sérieusement avec un autre avis.
               </p>

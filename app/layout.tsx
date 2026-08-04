@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: "Couvreur à Liège & Herstal | Lazo Toiture & Photovoltaïque",
     description:
-      "Rénovation de toiture, isolation, toiture plate, photovoltaïque et bardage en province de Liège. Diagnostic honnête, garantie décennale.",
+      "Rénovation de toiture, isolation, toiture plate, photovoltaïque et bardage en province de Liège. Devis honnête, garantie décennale.",
     images: [
       {
         url: "/img/og-lazo-toiture.jpg",

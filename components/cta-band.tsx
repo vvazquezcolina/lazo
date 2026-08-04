@@ -4,7 +4,7 @@ import { site, telHref } from "@/lib/site"
 
 export function CtaBand({
   title = "Un doute sur l'état de votre toiture ?",
-  body = "Nous passons voir, nous montons regarder, et nous vous disons ce qu'il en est. Le diagnostic est gratuit et sans engagement — y compris quand la réponse est qu'il n'y a rien à faire.",
+  body = "Nous passons voir, nous montons regarder, et nous vous disons ce qu'il en est. La visite et le devis sont gratuits et sans engagement — y compris quand la réponse est qu'il n'y a rien à faire.",
 }: {
   title?: string
   body?: string

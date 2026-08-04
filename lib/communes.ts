@@ -134,7 +134,7 @@ export const COMMUNES: Commune[] = [
       "Le relief de vallée encaissée crée des versants nord adossés au coteau qui reçoivent peu de soleil direct. Avec 1 545 heures d'ensoleillement annuel à Liège seulement, réparties sur une année sans saison sèche, ces versants sèchent lentement — condition idéale pour le développement des mousses et des lichens.",
     ],
     observed: [
-      "Sur le bâti ouvrier de la vallée, nous découvrons régulièrement des couvertures composites, où plusieurs générations de réparations menées avec les moyens du moment se superposent. Le diagnostic y prend plus de temps, et nous préférons le faire correctement plutôt que de chiffrer à l'aveugle.",
+      "Sur le bâti ouvrier de la vallée, nous découvrons régulièrement des couvertures composites, où plusieurs générations de réparations menées avec les moyens du moment se superposent. Le relevé y prend plus de temps, et nous préférons le faire correctement plutôt que de chiffrer à l'aveugle.",
       "Sur les hauteurs, les projets d'isolation par l'extérieur et de photovoltaïque se déploient sans les difficultés d'accès rencontrées en bas.",
     ],
     focus: "Rangées ouvrières mitoyennes, réparations superposées, versants nord humides",
@@ -153,7 +153,7 @@ export const COMMUNES: Commune[] = [
       "La mitoyenneté généralisée limite par ailleurs les solutions techniques disponibles : l'isolation par l'extérieur se heurte à l'alignement des façades et à l'absence de débord possible, ce qui oriente naturellement vers des solutions par l'intérieur.",
     ],
     observed: [
-      "Le parc étant très homogène, les pathologies se ressemblent fortement d'une maison à l'autre : un diagnostic dans une rue nous renseigne beaucoup sur ce que nous trouverons dans la suivante.",
+      "Le parc étant très homogène, les pathologies se ressemblent fortement d'une maison à l'autre : une visite dans une rue nous renseigne beaucoup sur ce que nous trouverons dans la suivante.",
       "Quand les combles ne sont pas habités et ne le seront pas, nous orientons vers l'isolation du plancher des combles plutôt que des rampants : à résultat thermique équivalent ou meilleur, c'est nettement moins cher.",
     ],
     focus: "Densité mitoyenne extrême, accès de chantier contraint, isolation par l'intérieur",
@@ -247,7 +247,7 @@ export const COMMUNES: Commune[] = [
       "Ces mêmes grandes surfaces, quand elles sont saines et bien orientées, représentent un potentiel de production photovoltaïque sans commune mesure avec celui d'une toiture pavillonnaire. L'irradiation relevée à Liège est de l'ordre de 1 010 kWh/m² par an, ce qui rend le calcul intéressant dès lors que la surface disponible est importante.",
     ],
     observed: [
-      "Sur les corps de ferme, nous commençons toujours par un diagnostic sérieux de la charpente avant de parler couverture : c'est ce poste qui fait basculer un budget, et une dépose intégrale décidée par précaution coûte très cher pour rien.",
+      "Sur les corps de ferme, nous commençons toujours par un examen sérieux de la charpente avant de parler couverture : c'est ce poste qui fait basculer un budget, et une dépose intégrale décidée par précaution coûte très cher pour rien.",
       "L'exposition étant maximale, nous portons une attention particulière au mode de fixation et aux habillages de rive.",
     ],
     focus: "Exposition maximale au vent, bâtiments agricoles de grande portée, potentiel solaire",
@@ -266,7 +266,7 @@ export const COMMUNES: Commune[] = [
       "La dispersion de l'habitat implique des accès parfois étroits, par des voiries de campagne peu adaptées aux véhicules de chantier lourds. C'est un paramètre logistique que nous évaluons lors de la visite, car il influence réellement l'organisation et le coût de l'intervention.",
     ],
     observed: [
-      "Sur le patrimoine bâti ancien de ces villages, nous plaidons régulièrement pour la conservation et le renforcement des charpentes traditionnelles plutôt que leur remplacement. Un diagnostic pièce par pièce coûte infiniment moins cher qu'une dépose intégrale.",
+      "Sur le patrimoine bâti ancien de ces villages, nous plaidons régulièrement pour la conservation et le renforcement des charpentes traditionnelles plutôt que leur remplacement. Un examen pièce par pièce coûte infiniment moins cher qu'une dépose intégrale.",
       "Les habillages de rive mal fixés sont, dans ce secteur, les premiers éléments à céder lors des épisodes venteux.",
     ],
     focus: "Villages hesbignons dispersés, bâti agricole, charpentes traditionnelles",

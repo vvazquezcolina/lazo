@@ -52,7 +52,7 @@ export const SERVICES: Service[] = [
     shortDescription:
       "Rénovation complète ou partielle de votre toiture, en ardoise naturelle, tuile terre cuite ou zinc à joint debout",
     highlights: [
-      "Diagnostic de couverture gratuit et sans engagement",
+      "Visite et devis gratuits, sans engagement",
       "Ardoise naturelle, tuile terre cuite, zinc à joint debout",
       "Sous-toiture, isolation et étanchéité traitées ensemble",
       "Garantie décennale sur les travaux de couverture",
@@ -63,7 +63,7 @@ export const SERVICES: Service[] = [
         body: [
           "Une toiture liégeoise bien posée tient plusieurs décennies, mais elle donne des signes avant de céder. Des ardoises qui glissent ou se fendent, des tuiles qui se déplacent après un coup de vent, des traces d'humidité sur les plafonds de l'étage, de la mousse épaisse qui retient l'eau contre la couverture : ce sont autant d'indices qu'il faut faire monter quelqu'un pour regarder de près.",
           "Le point le plus coûteux à ignorer reste la sous-toiture. Sur beaucoup de maisons anciennes de la région, il n'y a tout simplement pas d'écran sous-toiture, ou celui-ci s'est désagrégé avec le temps. L'eau qui passe sous une ardoise déplacée arrive alors directement sur la charpente. Un colmatage ponctuel ne règle rien dans ce cas : c'est la couverture qu'il faut reprendre.",
-          "Nous commençons systématiquement par un diagnostic sur place, documenté par des photos des zones que vous ne pouvez pas voir depuis le sol. Vous repartez avec un état des lieux honnête, y compris quand la conclusion est qu'il n'y a rien d'urgent à entreprendre.",
+          "Nous commençons systématiquement par une visite sur place, documentée par des photos des zones que vous ne pouvez pas voir depuis le sol. Vous repartez avec un état des lieux honnête, y compris quand la conclusion est qu'il n'y a rien d'urgent à entreprendre.",
         ],
       },
       {

@@ -403,7 +403,7 @@ export default function PrimesPage() {
       <Faq items={FAQ} title="Primes — questions fréquentes" />
       <CtaBand
         title="Votre dossier doit partir avant le 30 septembre"
-        body="Nous établissons des devis conformes aux exigences techniques du dispositif et nous vous aidons à constituer le dossier. Le diagnostic est gratuit."
+        body="Nous établissons des devis conformes aux exigences techniques du dispositif et nous vous aidons à constituer le dossier. La visite est gratuite."
       />
     </>
   )

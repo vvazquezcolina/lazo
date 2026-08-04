@@ -25,7 +25,7 @@ export async function generateMetadata({
   if (!c) return {}
 
   const title = `Couvreur à ${c.name} (${c.postalCode}) | Rénovation de Toiture`
-  const description = `Couvreur à ${c.name} : rénovation de toiture, isolation, toiture plate et photovoltaïque. Diagnostic gratuit, devis sous 24 h.`
+  const description = `Couvreur à ${c.name} : rénovation de toiture, isolation, toiture plate et photovoltaïque. Devis gratuit sous 24 h.`
 
   return {
     title,
@@ -62,12 +62,12 @@ export default async function CommunePage({ params }: { params: Promise<{ slug: 
       }.`,
     },
     {
-      q: `Quel est le délai pour un diagnostic à ${commune.name} ?`,
+      q: `Quel est le délai pour une visite à ${commune.name} ?`,
       a: `Nous proposons généralement un rendez-vous dans les jours qui suivent votre demande. Appelez-nous au ${site.phoneDisplay} ou remplissez le formulaire de devis : nous vous donnerons une date réaliste plutôt qu'une promesse que nous ne pourrions pas tenir.`,
     },
     {
       q: `Le déplacement à ${commune.name} est-il facturé ?`,
-      a: `Non. ${commune.name} fait partie de notre zone d'intervention habituelle : le déplacement, le diagnostic et le devis écrit sont gratuits et sans engagement.`,
+      a: `Non. ${commune.name} fait partie de notre zone d'intervention habituelle : le déplacement et le devis écrit sont gratuits et sans engagement.`,
     },
     {
       q: `Faut-il une autorisation communale pour rénover une toiture à ${commune.name} ?`,
@@ -107,7 +107,7 @@ export default async function CommunePage({ params }: { params: Promise<{ slug: 
                 href="/devis"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold-400 px-7 py-3.5 font-bold text-navy-900 transition hover:bg-gold-300"
               >
-                Diagnostic gratuit à {commune.name}
+                Devis gratuit à {commune.name}
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
               <a
@@ -232,7 +232,7 @@ export default async function CommunePage({ params }: { params: Promise<{ slug: 
       <Faq items={localFaq} title={`Couvreur à ${commune.name} — questions fréquentes`} />
       <CtaBand
         title={`Un projet de toiture à ${commune.name} ?`}
-        body="Nous passons voir, nous montons regarder, et nous vous disons ce qu'il en est. Le diagnostic est gratuit et sans engagement."
+        body="Nous passons voir, nous montons regarder, et nous vous disons ce qu'il en est. La visite et le devis sont gratuits et sans engagement."
       />
     </>
   )

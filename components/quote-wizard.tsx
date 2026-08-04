@@ -50,28 +50,123 @@ const STEPS: Step[] = [
     ],
   },
   {
+    id: "toiture",
+    kind: "choice",
+    required: true,
+    // Sans objet pour un bardage, qui ne touche pas à la toiture.
+    // Tant que le service n'est pas choisi, l'étape reste comptée : le total
+    // ne peut donc que diminuer en cours de route, jamais grandir sous les
+    // yeux du visiteur — un parcours qui s'allonge décourage, l'inverse non.
+    when: (a) => a.service !== "Bardage",
+    question: "Quel est votre type de toiture ?",
+    help: "La forme de la toiture détermine l'accès, l'échafaudage et les points sensibles à vérifier.",
+    options: [
+      { value: "2 versants", label: "2 versants", hint: "Deux pans qui se rejoignent au faîte" },
+      { value: "3 versants", label: "3 versants", hint: "Deux pans et une croupe" },
+      { value: "4 versants", label: "4 versants", hint: "Une croupe à chaque extrémité" },
+      { value: "Plate-forme", label: "Plate-forme", hint: "Toiture plate ou à très faible pente" },
+      { value: "Industrielle", label: "Industrielle", hint: "Hangar, atelier, bâtiment professionnel" },
+    ],
+  },
+  {
     id: "couverture",
     kind: "choice",
     required: true,
-    // Sans objet pour une toiture plate (la question porte déjà la réponse)
-    // et pour un bardage, qui ne concerne pas la couverture.
-    // Tant que le service n'est pas choisi, l'étape reste comptée : sinon le
-    // total afficherait « sur 5 » au premier écran puis basculerait à « sur 6 »
-    // dès la sélection, et le repère bougerait sous les yeux du visiteur.
-    when: (a) =>
-      !a.service ||
-      ["Rénovation de toiture", "Isolation de toiture", "Photovoltaïque"].includes(a.service),
-    question: "Quel est le type de couverture actuel ?",
+    // Sans objet pour un bardage, qui ne concerne pas la couverture.
+    when: (a) => a.service !== "Bardage",
+    question: "Quel est le type de couverture actuelle ?",
     help: "Si vous n'en êtes pas certain, choisissez la dernière option — nous l'identifierons sur place.",
     options: [
-      { value: "Ardoise naturelle", label: "Ardoise naturelle", hint: "Plaques fines gris-bleu" },
-      { value: "Ardoise artificielle", label: "Ardoise artificielle", hint: "Fibres-ciment, aspect régulier" },
-      { value: "Tuiles terre cuite", label: "Tuiles en terre cuite", hint: "Teinte rouge à brune" },
-      { value: "Tuiles béton", label: "Tuiles en béton", hint: "Plus épaisses, souvent grises" },
+      { value: "Ardoises", label: "Ardoises", hint: "Naturelles ou artificielles" },
+      { value: "Tuiles", label: "Tuiles", hint: "Terre cuite ou béton" },
+      { value: "Roofing", label: "Roofing", hint: "Membrane bitumineuse, courante en plate-forme" },
       { value: "Zinc", label: "Zinc" },
+      { value: "Tôles", label: "Tôles", hint: "Bacs acier, plaques ondulées" },
       { value: "Je ne sais pas", label: "Je ne sais pas", hint: "Nous l'identifierons lors de la visite" },
     ],
   },
+
+  // ── Volet photovoltaïque ────────────────────────────────────────────
+  // Ces cinq étapes ne s'affichent qu'après avoir choisi « Photovoltaïque »,
+  // ce qui allonge le parcours en cours de route — l'inverse de la règle
+  // suivie plus haut. C'est assumé ici : le visiteur vient de sélectionner
+  // lui-même une prestation technique, et ces réponses conditionnent le
+  // dimensionnement. Les faire apparaître pour tout le monde afficherait
+  // « sur 12 » dès le premier écran, ce qui découragerait bien davantage.
+  {
+    id: "orientation",
+    kind: "choice",
+    required: true,
+    when: (a) => a.service === "Photovoltaïque",
+    question: "Vers où est orientée la toiture ?",
+    help: "Le sud est optimal, mais est-ouest reste très pertinent : la production s'étale mieux sur la journée, ce qui favorise l'autoconsommation.",
+    options: [
+      { value: "Sud", label: "Sud", hint: "Orientation la plus productive" },
+      { value: "Sud-est ou sud-ouest", label: "Sud-est ou sud-ouest" },
+      { value: "Est-ouest", label: "Est-ouest", hint: "Deux pans, production étalée sur la journée" },
+      { value: "Nord", label: "Nord", hint: "Nous vous dirons franchement ce que cela donne" },
+      { value: "Je ne sais pas", label: "Je ne sais pas", hint: "Nous le relèverons sur place" },
+    ],
+  },
+  {
+    id: "ombrage",
+    kind: "choice",
+    required: true,
+    when: (a) => a.service === "Photovoltaïque",
+    question: "La toiture est-elle ombragée ?",
+    help: "Une ombre portée, même partielle, pèse sur la production. Mieux vaut la connaître avant de dimensionner.",
+    options: [
+      { value: "Aucune ombre", label: "Aucune ombre", hint: "Dégagée toute la journée" },
+      { value: "Cheminée ou lucarne", label: "Cheminée ou lucarne", hint: "Ombre portée sur une partie du pan" },
+      { value: "Arbres", label: "Arbres" },
+      { value: "Bâtiment voisin", label: "Bâtiment voisin" },
+      { value: "Je ne sais pas", label: "Je ne sais pas", hint: "Nous l'évaluerons lors de la visite" },
+    ],
+  },
+  {
+    id: "consommation",
+    kind: "choice",
+    required: true,
+    when: (a) => a.service === "Photovoltaïque",
+    question: "Quelle est votre consommation annuelle d'électricité ?",
+    help: "Elle figure sur votre décompte annuel. C'est elle qui détermine la puissance à installer — surdimensionner pour injecter n'est plus la bonne stratégie.",
+    options: [
+      { value: "Moins de 2 500 kWh", label: "Moins de 2 500 kWh" },
+      { value: "2 500 à 4 000 kWh", label: "2 500 à 4 000 kWh", hint: "Consommation d'un ménage courant" },
+      { value: "4 000 à 6 000 kWh", label: "4 000 à 6 000 kWh" },
+      { value: "Plus de 6 000 kWh", label: "Plus de 6 000 kWh", hint: "Chauffage électrique, pompe à chaleur ou véhicule" },
+      { value: "Je ne sais pas", label: "Je ne sais pas", hint: "Nous la reprendrons sur votre décompte" },
+    ],
+  },
+  {
+    id: "equipements",
+    kind: "choice",
+    required: true,
+    when: (a) => a.service === "Photovoltaïque",
+    question: "Avez-vous l'un de ces équipements ?",
+    help: "Ils consomment beaucoup et souvent en journée : c'est précisément ce qui rend une installation rentable.",
+    options: [
+      { value: "Pompe à chaleur", label: "Pompe à chaleur" },
+      { value: "Véhicule électrique", label: "Véhicule électrique" },
+      { value: "Les deux", label: "Pompe à chaleur et véhicule électrique" },
+      { value: "Chauffe-eau électrique", label: "Chauffe-eau électrique ou boiler" },
+      { value: "Aucun", label: "Aucun de ceux-ci" },
+    ],
+  },
+  {
+    id: "batterie",
+    kind: "choice",
+    required: true,
+    when: (a) => a.service === "Photovoltaïque",
+    question: "Souhaitez-vous une batterie de stockage ?",
+    help: "Elle augmente l'autoconsommation mais représente un investissement conséquent. Nous ferons le calcul avec vos chiffres et nous vous dirons si le compte n'y est pas.",
+    options: [
+      { value: "Oui", label: "Oui", hint: "Le projet en prévoit une" },
+      { value: "Non", label: "Non" },
+      { value: "À étudier", label: "À étudier", hint: "Chiffrez-moi les deux options" },
+    ],
+  },
+
   {
     id: "batiment",
     kind: "choice",
@@ -220,14 +315,32 @@ export function QuoteWizard() {
           urgency: answers.urgency ?? "",
           message: [
             answers.adresse ? `Adresse : ${answers.adresse}` : "",
-            // N'inclure la couverture que si l'étape fait partie du parcours
-            // effectivement suivi : un visiteur qui répond « Ardoise » puis
-            // revient en arrière pour choisir « Toiture plate » laisserait
-            // sinon une réponse orpheline et contradictoire dans le mail.
+            // N'inclure ces réponses que si l'étape fait partie du parcours
+            // effectivement suivi : un visiteur qui répond « Ardoises » puis
+            // revient en arrière pour choisir « Bardage » laisserait sinon
+            // une réponse orpheline et contradictoire dans le mail.
+            asked("toiture") && answers.toiture
+              ? `Type de toiture : ${answers.toiture}`
+              : "",
             asked("couverture") && answers.couverture
               ? `Couverture actuelle : ${answers.couverture}`
               : "",
             answers.batiment ? `Type de bâtiment : ${answers.batiment}` : "",
+            // Volet photovoltaïque — même règle : rien dans le mail si
+            // l'étape n'a pas été posée.
+            asked("orientation") && answers.orientation
+              ? `Orientation : ${answers.orientation}`
+              : "",
+            asked("ombrage") && answers.ombrage ? `Ombrage : ${answers.ombrage}` : "",
+            asked("consommation") && answers.consommation
+              ? `Consommation annuelle : ${answers.consommation}`
+              : "",
+            asked("equipements") && answers.equipements
+              ? `Équipements : ${answers.equipements}`
+              : "",
+            asked("batterie") && answers.batterie
+              ? `Batterie de stockage : ${answers.batterie}`
+              : "",
           ]
             .filter(Boolean)
             .join("\n"),
@@ -291,7 +404,7 @@ export function QuoteWizard() {
         <h2 className="mt-6 text-navy-900">Demande bien reçue</h2>
         <p className="prose-lazo mt-4 text-muted-foreground">
           Merci {answers.name?.split(" ")[0]}. Nous revenons vers vous rapidement pour convenir
-          d&apos;une date de visite. Le diagnostic et le devis sont gratuits et sans engagement.
+          d&apos;une date de visite. La visite et le devis sont gratuits et sans engagement.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Link
